@@ -17,6 +17,7 @@ import { ToastModule } from 'primeng/toast';
 import { ClienteResolver } from './views/cliente-form/cliente.resolver';
 import { FieldsClienteFormComponent } from './views/cliente-form/fields-cliente-form/fields-cliente-form.component';
 import { DialogModule } from 'primeng/dialog';
+import { InputMaskModule } from 'primeng/inputmask';
 
 @NgModule({
   declarations: [ClienteFormComponent, ClienteListComponent, FieldsClienteFormComponent],
@@ -33,7 +34,8 @@ import { DialogModule } from 'primeng/dialog';
     RadioButtonModule,
     MessageModule,
     ToastModule,
-    DialogModule
+    DialogModule,
+    InputMaskModule
   ],
   providers: [
     MessageService,

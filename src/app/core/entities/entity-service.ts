@@ -1,4 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { MessageService } from "primeng/components/common/messageservice";
 import { catchError } from 'rxjs/operators/';
 import { throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -8,9 +9,11 @@ export class EntityService<T> {
 
   constructor(
     protected http: HttpClient,
+    protected messageService: MessageService,
     protected entityUrl: string,
   ) {
     this.http = http;
+    this.messageService = messageService;
     this.entityUrl = entityUrl;
     this.headers = new HttpHeaders().set('Authorization', `Bearer ${environment.TOKEN}`);
   }
@@ -38,9 +41,14 @@ export class EntityService<T> {
   public defaultCatch() {
     return catchError((err: any) => {
       if (err) {
-        const summary =  err.status ? String(err.status) : 'Error';
+        const summary = err.status ? String(err.status) : 'Error';
         const detail = (err.error && err.error.message) || err.statusText || err.message || 'Error';
-        console.log(summary, detail);
+        
+        this.messageService.add({
+          severity: "error",
+          summary,
+          detail,
+        });
       }
       return throwError(err);
     });

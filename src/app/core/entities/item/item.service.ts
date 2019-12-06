@@ -11,6 +11,7 @@ export class ItemService extends EntityService<ItemDto> {
     constructor(protected http: HttpClient, protected messageService: MessageService) {
         super(
             http,
+            messageService,
             `https://platform-homologx.senior.com.br/t/senior.com.br/bridge/1.0/rest/furb/basico/entities/item`
         );
     }

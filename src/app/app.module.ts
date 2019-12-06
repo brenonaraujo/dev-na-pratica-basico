@@ -23,7 +23,7 @@ import {
 } from '@seniorsistemas/angular-components';
 import { CoreModule } from './core/core.module';
 import { MessageService } from 'primeng/components/common/messageservice';
-
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -46,6 +46,7 @@ import { MessageService } from 'primeng/components/common/messageservice';
     TranslateModule.forRoot(),
     FeaturesModule,
     CoreModule,
+    ToastModule
   ],
   providers: [
     MessageService

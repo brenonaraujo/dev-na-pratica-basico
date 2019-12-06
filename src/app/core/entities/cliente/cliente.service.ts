@@ -12,6 +12,7 @@ export class ClienteService extends EntityService<ClienteDto> {
     constructor(protected http: HttpClient, protected messageService: MessageService) {
         super(
             http,
+            messageService,
             `${environment.BASE_URL}/rest/furb/basico/entities/cliente`
         );
     }

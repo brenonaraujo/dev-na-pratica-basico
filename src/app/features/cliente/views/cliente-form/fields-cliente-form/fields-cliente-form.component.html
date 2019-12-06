@@ -7,10 +7,15 @@
             <input #nomeFormInput type="text" id="nome" name="nome" pInputText formControlName="nome"
               autocomplete="off" placeholder="Ex: Fulano de tal" />
           </div>
+          <div *ngIf="clienteForm.controls.nome.dirty">
+            <p class="control-errors" *ngIf="clienteForm.controls.nome.errors?.required">Campo obrigatório</p>
+            <p class="control-errors" *ngIf="clienteForm.controls.nome.errors?.maxlength">Tamanho máximo excedido {{clienteForm.controls.nome.errors?.maxlength?.value}}</p>
+            <p class="control-errors" *ngIf="clienteForm.controls.nome.errors?.forbiddenName">Não pode ser {{clienteForm.controls.nome.errors?.forbiddenName?.value}}</p>
+          </div>
         </div>
 
         <div class="ui-g-12 ui-md-6 ui-lg-4">
-          <label for="itemName">Data de nascimento</label>
+          <label class="required" for="itemName">Data de nascimento</label>
           <i *ngIf="outOfDate" pTooltip="Produto Vencido!" tooltipPosition="top"
             class="pi pi-calendar-times outOfDate"></i>
           <div class="ui-inputgroup">
@@ -35,12 +40,11 @@
         </div>
 
         <div class="ui-g-12 ui-md-6 ui-lg-4">
-          <label for="itemName">CPF</label>
+          <label class="required" for="itemName">CPF</label>
           <i *ngIf="outOfDate" pTooltip="Produto Vencido!" tooltipPosition="top"
             class="pi pi-calendar-times outOfDate"></i>
           <div class="ui-inputgroup">
-            <input #cpfFormInput type="text" id="cpf" name="cpf" pInputText formControlName="cpf" autocomplete="off"
-              placeholder="Ex: 012.227.992-19" />
+            <p-inputMask id="cpf" name="cpf" mask="999.999.999-99" formControlName="cpf" [(ngModel)]="val1" placeholder="012.227.992-19"></p-inputMask>
           </div>
         </div>
 

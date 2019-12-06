@@ -46,14 +46,14 @@ export class ClienteFormComponent implements OnInit {
       this.cliente = value;
     } else {
       this.cliente = new Cliente();
-      this.cliente = Cliente.fromDto({
-        id: "123",
-        nome: "Teste",
-        dataNascimento: "06/12/2019",
-        creditoHabilitado: "10",
-        cpf: "",
-        idFoto: ""
-      })
+      // this.cliente = Cliente.fromDto({
+      //   id: "123",
+      //   nome: "Teste",
+      //   dataNascimento: "06/12/2019",
+      //   creditoHabilitado: "10",
+      //   cpf: "",
+      //   idFoto: ""
+      // })
     }
   }
 
