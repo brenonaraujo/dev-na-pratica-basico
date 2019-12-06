@@ -15,9 +15,11 @@ import { MessageService } from 'primeng/api';
 import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
 import { ClienteResolver } from './views/cliente-form/cliente.resolver';
+import { FieldsClienteFormComponent } from './views/cliente-form/fields-cliente-form/fields-cliente-form.component';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
-  declarations: [ClienteFormComponent, ClienteListComponent],
+  declarations: [ClienteFormComponent, ClienteListComponent, FieldsClienteFormComponent],
   imports: [
     CommonModule,
     ClienteRouterModule,
@@ -30,7 +32,8 @@ import { ClienteResolver } from './views/cliente-form/cliente.resolver';
     CalendarModule,
     RadioButtonModule,
     MessageModule,
-    ToastModule
+    ToastModule,
+    DialogModule
   ],
   providers: [
     MessageService,

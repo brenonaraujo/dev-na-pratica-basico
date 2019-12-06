@@ -28,6 +28,8 @@
     </p-header>
       <div style="text-align:left">
           <button id="add-button" type="button" pButton icon="pi pi-plus" (click)="onAdd()" label="Adicionar"></button>
+          <button id="quick-add-button" type="button" pButton icon="pi pi-plus" (click)="onQuickAdd()" label="Adicionar rápido"></button>
+          <button id="edit-button" type="button" pButton icon="pi pi-plus" (click)="onEdit()" label="Editar"></button>      
       </div>
       <p-table [columns]="columns" [value]="clientes" [lazy]="true" [scrollable]="true" dataKey="id" [rows]="10" [paginator]="true" [pageLinks]="3"
       [responsive]="true">
@@ -70,3 +72,7 @@
     </p-card>
   </div>
 </div>
+
+<p-dialog header="Title" [(visible)]="display" styleClass="modal-formulario" modal="true">
+  <fields-cliente-form [cliente]="this.cliente" (onCancel)="onCancel()"></fields-cliente-form>
+</p-dialog>
