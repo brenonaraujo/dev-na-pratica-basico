@@ -15,6 +15,9 @@ export class ClienteListComponent implements OnInit {
 
   clientes: Cliente[];
   columns: any[];
+  display: boolean = false;
+  title: any;
+  cliente: Cliente;
 
   constructor(
     private clienteService: ClienteService,
@@ -31,7 +34,6 @@ export class ClienteListComponent implements OnInit {
     });
 
     this.columns = this.getGridColumns();
-
   }
 
   private getGridColumns() {
@@ -57,6 +59,19 @@ export class ClienteListComponent implements OnInit {
 
   public onAdd() {
     this.router.navigate(['/cliente/create'], { relativeTo: this.route });
+  }
+
+  public onEdit() {
+    const value: any = Cliente.fromDto({
+      id: "123",
+      nome: "joão",
+      dataNascimento: "12/07/2019",
+      cpf: "999",
+      idFoto: "1",
+      creditoHabilitado: "true"
+    });
+    this.cliente = value;
+    this.display = true;
   }
 
   public editItem(cliente: Cliente) {
@@ -95,6 +110,10 @@ export class ClienteListComponent implements OnInit {
         }
         return throwError(err);
       });
+  }
+
+  public onCancel() {
+    this.display = false;
   }
 
 }

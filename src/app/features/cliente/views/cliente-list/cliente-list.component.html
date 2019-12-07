@@ -28,6 +28,7 @@
     </p-header>
       <div style="text-align:left">
           <button id="add-button" type="button" pButton icon="pi pi-plus" (click)="onAdd()" label="Adicionar"></button>
+          <button id="edit-button" type="button" pButton icon="pi pi-plus" (click)="onEdit()" label="Editar"></button>
       </div>
       <p-table [columns]="columns" [value]="clientes" [lazy]="true" [scrollable]="true" dataKey="id" [rows]="10" [paginator]="true" [pageLinks]="3"
       [responsive]="true">
@@ -70,3 +71,6 @@
     </p-card>
   </div>
 </div>
+<p-dialog header="Editar" [(visible)]="display" modal="true">
+  <field-cliente-form [cliente]="cliente" (onCancel)="onCancel()"></field-cliente-form>
+</p-dialog>
